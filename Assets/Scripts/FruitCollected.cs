@@ -8,6 +8,8 @@ public class FruitCollected : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().enabled = false;
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            FindObjectOfType<FruitManager>().AllFruitsCollected();
+
             Destroy(gameObject, 0.5f);
         }
     }
