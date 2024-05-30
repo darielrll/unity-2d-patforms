@@ -15,6 +15,7 @@ __Notes__:
  - how to create a map scene from a component palette taken from Unity assets
  - if collider has the property "Is Trigger" = true, then the collider will traspass other objects
    - example, the collider set for the empyt child of the frog, used to know if the frog is on the floor. 
+ - Improve jump physics, low jump and highier jump
 
 # What to add
  - 
