@@ -16,6 +16,7 @@ __Notes__:
  - if collider has the property "Is Trigger" = true, then the collider will traspass other objects
    - example, the collider set for the empyt child of the frog, used to know if the frog is on the floor. 
  - Improve jump physics, low jump and highier jump
+ - How to animate the "frog", idle, run, jump, left, right
 
 # What to add
  - 

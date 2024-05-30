@@ -9,6 +9,8 @@ public class PlayerMove : MonoBehaviour
     public bool betterJump = false;
     public float fallMultiplier = 0.5f;
     public float lowJumpMultiplier = 1f;
+    public SpriteRenderer spriteRenderer;
+    public Animator animator;
 
     void Start()
     {
@@ -19,20 +21,35 @@ public class PlayerMove : MonoBehaviour
     {
         if (Input.GetKey("d")  ||  Input.GetKey("right"))
         {
+            spriteRenderer.flipX = false;
+            animator.SetBool("Run", true);
             rigidbody2D.velocity = new Vector2(runSpeed, rigidbody2D.velocity.y);
         }
         else if (Input.GetKey("a") || Input.GetKey("left"))
         {
+            spriteRenderer.flipX = true;
+            animator.SetBool("Run", true);
             rigidbody2D.velocity = new Vector2(-runSpeed, rigidbody2D.velocity.y);
         }
         else
         {
+            animator.SetBool("Run", false);
             rigidbody2D.velocity = new Vector2(0, rigidbody2D.velocity.y);
         }
 
         if (Input.GetKey("space")  &&  CheckGround.isGrounded)
         {
             rigidbody2D.velocity = new Vector2(rigidbody2D.velocity.x, jumpSpeed);
+        }
+
+        if (!CheckGround.isGrounded)
+        {
+            animator.SetBool("Jump", true);
+            animator.SetBool("Run", false);
+        }
+        if (CheckGround.isGrounded)
+        {
+            animator.SetBool("Jump", false);
         }
 
         if (betterJump)
